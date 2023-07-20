@@ -1,23 +1,15 @@
 name: Industrialisation continue sur le serveur AWS (Tomcat)
 on: push
 jobs:
-  Package:
-    name: Creation .war
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: |
-          rm sample.war
-          jar cvf sample.war *.*
-          ls -al
   Deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - run: |
+          rm sample.war
+          jar cvf sample.war *.*
+          ls -al
     - name: copy file via ssh password
       uses: appleboy/scp-action@master
       with:

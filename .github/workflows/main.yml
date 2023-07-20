@@ -9,7 +9,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: ls -al
+      - run: |
+          rm sample.war
+          jar cvf sample.war *.*
+          ls -al
   Deploy:
     name: Deploy
     runs-on: ubuntu-latest

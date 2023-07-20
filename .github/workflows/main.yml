@@ -1,8 +1,8 @@
-name: Transfert SCP
+name: Industrialisation continue sur le serveur AWS (Tomcat)
 on: push
 jobs:
   Package:
-    name: Run npm on Ubuntu
+    name: Creation .war
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

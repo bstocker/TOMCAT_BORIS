@@ -2,8 +2,8 @@ name: Transfert SCP
 on: push
 jobs:
 
-  build:
-    name: deploy
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master

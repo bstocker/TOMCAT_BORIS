@@ -47,6 +47,9 @@
 
             // Faites ce que vous voulez avec les données...
         }
+
+        System.out.println("Test");
+
     } catch (ClassNotFoundException | SQLException e) {
         e.printStackTrace();
     } finally {

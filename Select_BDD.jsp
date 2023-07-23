@@ -40,8 +40,8 @@
         while (rs.next()) {
             String colonne1 = rs.getString("id");
             String colonne2 = rs.getString("first");
-            String colonne2 = rs.getString("last");
-            String colonne2 = rs.getString("age");
+            String colonne3 = rs.getString("last");
+            String colonne4 = rs.getString("age");
             // Faites ce que vous voulez avec les données...
         }
     } catch (ClassNotFoundException | SQLException e) {

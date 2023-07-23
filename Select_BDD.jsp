@@ -42,6 +42,9 @@
             String colonne2 = rs.getString("first");
             String colonne3 = rs.getString("last");
             String colonne4 = rs.getString("age");
+
+            System.out.println("ID: " + id + ", Prenom: " + first + ", Nom: " + last + ", Age: " + age);
+
             // Faites ce que vous voulez avec les données...
         }
     } catch (ClassNotFoundException | SQLException e) {

@@ -52,6 +52,9 @@
 
     } catch (ClassNotFoundException | SQLException e) {
         e.printStackTrace();
+        System.out.println("HS");
+
+
     } finally {
         // Fermer les ressources
         if (rs != null) {

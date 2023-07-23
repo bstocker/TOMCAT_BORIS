@@ -19,7 +19,7 @@
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
-    try {
+  
         // Informations de connexion
         String url = "jdbc:mysql://localhost:3306/bdd_boris";
         String user = "root";
@@ -50,12 +50,7 @@
 
         System.out.println("Test");
 
-    } catch (ClassNotFoundException | SQLException e) {
-        e.printStackTrace();
-        System.out.println("HS");
-
-
-    } finally {
+    
         // Fermer les ressources
         if (rs != null) {
             try { rs.close(); } catch (SQLException e) { }
@@ -66,7 +61,7 @@
         if (conn != null) {
             try { conn.close(); } catch (SQLException e) { }
         }
-    }
+    
     %>
 </body>
 </html>

@@ -18,7 +18,7 @@
         Class.forName("com.mysql.jdbc.Driver");
 
         // Établir la connexion
-        Connection conn = DriverManager.getConnection("url", user, password);
+        Connection conn = DriverManager.getConnection(url, user, password);
 
         // Exemple de requête SQL
         String sql = "SELECT * FROM Employees";

@@ -1,48 +1,24 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-"http://www.w3.org/TR/html4/loose.dtd"> 
+<%@ page import="java.sql.*"%>
+<html>
+<head>
+<title>JDBC Connection example</title>
+</head>
 
-<%@ page import="java.sql.*" %> 
-<%@ page import="java.io.*" %> 
-
-<html> 
-<head> 
-<title>Connection with mysql database</title> 
-</head> 
 <body>
-<h1>Connection status </h1>
-<% 
-try {
-/* Create string of connection url within specified format with machine name, 
-port number and database name. Here machine name id localhost and 
-database name is usermaster. */ 
-String connectionURL = "jdbc:mysql://localhost:3306/bdd_boris"; 
+<h1>JDBC Connection example</h1>
 
-// declare a connection by using Connection interface 
-Connection connection = null; 
-
-// Load JBBC driver "com.mysql.jdbc.Driver" 
-Class.forName("com.mysql.jdbc.Driver").newInstance(); 
-
-/* Create a connection by using getConnection() method that takes parameters of 
-string type connection url, user name and password to connect to database. */ 
-connection = DriverManager.getConnection(connectionURL, "root", "root");
-
-// check weather connection is established or not by isClosed() method 
-if(!connection.isClosed())
-%>
-<font size="+3" color="green"></b>
-<% 
-out.println("Successfully connected to " + "MySQL server using TCP/IP...");
-connection.close();
-}
-catch(Exception ex){
-%>
-</font>
-<font size="+3" color="red"></b>
 <%
-out.println("Unable to connect to database.");
-}
+  String db = request.getParameter("bdd_boris");
+  String user = "root"; // assumes database name is the same as username
+  try {
+    java.sql.Connection con;
+    Class.forName("org.gjt.mm.mysql.Driver");
+    con = DriverManager.getConnection("jdbc:mysql://localhost/"+db, user, "root");
+    out.println (db+ "database successfully opened.");
+  }
+  catch(SQLException ex) {
+    out.println("SQLException caught: " +ex.getMessage());
+  }
 %>
-</font>
-</body> 
-</html> 
+
+</body>

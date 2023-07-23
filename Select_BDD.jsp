@@ -32,7 +32,7 @@
         conn = DriverManager.getConnection(url, user, password);
 
         // Exemple de requête SQL
-        String sql = "SELECT * FROM Employees";
+        String sql = "SELECT * FROM Employes";
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery();
 

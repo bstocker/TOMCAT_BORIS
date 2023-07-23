@@ -15,48 +15,36 @@
 <body>
     <h1>Exemple de connexion à MySQL via JSP</h1>
     <% 
-    Connection conn = null;
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
+    String url = "jdbc:mysql://localhost:3306/bdd_boris";
+    String user = "root";
+    String password = "root";
 
     try {
-        // Informations de connexion
-        String url = "jdbc:mysql://localhost:3306/bdd_boris";
-        String user = "root";
-        String password = "root";
-
         // Charger le pilote JDBC
         Class.forName("com.mysql.jdbc.Driver");
 
         // Établir la connexion
-        conn = DriverManager.getConnection(url, user, password);
+        Connection conn = DriverManager.getConnection(url, user, password);
 
         // Exemple de requête SQL
         String sql = "SELECT * FROM Employees";
-        pstmt = conn.prepareStatement(sql);
-        rs = pstmt.executeQuery();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery();
 
-        // Traiter les résultats (à adapter selon vos besoins)
+        // Afficher les résultats (à adapter selon vos besoins)
         while (rs.next()) {
             String colonne1 = rs.getString("id");
             String colonne2 = rs.getString("first");
-
-            System.out.println("ID: " + colonne1 + ", Prenom: " + colonne2);
             // Faites ce que vous voulez avec les données...
+            out.println("Colonne 1 : " + colonne1 + ", Colonne 2 : " + colonne2);
         }
+
+        // Fermer les ressources
+        rs.close();
+        pstmt.close();
+        conn.close();
     } catch (ClassNotFoundException | SQLException e) {
         e.printStackTrace();
-    } finally {
-        // Fermer les ressources
-        if (rs != null) {
-            try { rs.close(); } catch (SQLException e) { }
-        }
-        if (pstmt != null) {
-            try { pstmt.close(); } catch (SQLException e) { }
-        }
-        if (conn != null) {
-            try { conn.close(); } catch (SQLException e) { }
-        }
     }
     %>
 </body>

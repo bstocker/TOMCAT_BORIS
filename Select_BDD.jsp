@@ -34,7 +34,7 @@
             out.println("Colonne 1 : " + colonne1 + ", Colonne 2 : " + colonne2 + "</br>");
         }
 
-        // Fermer les ressources
+        // Fermer les ressources 
         rs.close();
         pstmt.close();
         conn.close();

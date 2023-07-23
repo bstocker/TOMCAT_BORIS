@@ -18,7 +18,7 @@
         Class.forName("com.mysql.jdbc.Driver");
 
         // Établir la connexion
-        Connection conn = DriverManager.getConnection(url, user, password);
+        Connection conn = DriverManager.getConnection("url", user, password);
 
         // Exemple de requête SQL
         String sql = "SELECT * FROM Employees";
@@ -30,7 +30,8 @@
             String colonne1 = rs.getString("id");
             String colonne2 = rs.getString("first");
             // Faites ce que vous voulez avec les données...
-            out.println("Colonne 1 : " + colonne1 + ", Colonne 2 : " + colonne2);
+            //Exemple d'affichage de 2 colonnes
+            out.println("Colonne 1 : " + colonne1 + ", Colonne 2 : " + colonne2 + "</br>");
         }
 
         // Fermer les ressources

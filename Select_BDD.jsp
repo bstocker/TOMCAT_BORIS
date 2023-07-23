@@ -43,7 +43,7 @@
             String colonne3 = rs.getString("last");
             String colonne4 = rs.getString("age");
 
-            System.out.println("ID: " + id + ", Prenom: " + first + ", Nom: " + last + ", Age: " + age);
+            System.out.println("ID: " + colonne1 + ", Prenom: " + colonne2 + ", Nom: " + colonne3 + ", Age: " + colonne4);
 
             // Faites ce que vous voulez avec les données...
         }

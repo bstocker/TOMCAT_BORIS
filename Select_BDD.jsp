@@ -10,7 +10,7 @@
 <body>
     <h1>Exemple de connexion à MySQL via JSP</h1>
     <% 
-    String url = "jdbc:mysql://localhost:3306/bdd_boris";
+    String url = "jdbc:mysql://localhost:3306/films";
     String user = "root";
     String password = "root";
 
@@ -21,14 +21,14 @@
         Connection conn = DriverManager.getConnection(url, user, password);
 
         // Exemple de requête SQL
-        String sql = "SELECT * FROM Employees";
+        String sql = "SELECT idFilm, titre, année FROM Film";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         ResultSet rs = pstmt.executeQuery();
 
         // Afficher les résultats (à adapter selon vos besoins)
         while (rs.next()) {
-            String colonne1 = rs.getString("id");
-            String colonne2 = rs.getString("first");
+            String colonne1 = rs.getString("idFilm");
+            String colonne2 = rs.getString("titre");
             // Faites ce que vous voulez avec les données...
             //Exemple d'affichage de 2 colonnes
             out.println("Colonne 1 : " + colonne1 + ", Colonne 2 : " + colonne2 + "</br>");

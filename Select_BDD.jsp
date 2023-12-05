@@ -4,8 +4,8 @@
 <%
     Connection conn = null;
     String url = "jdbc:mariadb://localhost:3306/films";
-    String utilisateur = "root";
-    String motDePasse = "root";
+    String utilisateur = "mysql";
+    String motDePasse = "mysql";
 
     try {
         Class.forName("org.mariadb.jdbc.Driver");
